@@ -19,7 +19,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	private SessionFactory sessionFactory;		//sessionFactory is the bean id in config file
 
 	@Override
-	@Transactional		//Automatically begin, commit transaction
+	//@Transactional		//Automatically begin, commit transaction
 	public List<Customer> getCustomers() {
 		
 		//get current hibernate session
