@@ -35,13 +35,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override		//@Transactional inside CustomerServiceImpl
-	public void saveCustomer(Customer customer) {
+	public void saveCustomer(Customer mCustomer) {
 		
 		//get current session
 		Session currentSession=sessionFactory.getCurrentSession();
 		
 		//save or update customer
-		currentSession.saveOrUpdate(customer);
+		currentSession.saveOrUpdate(mCustomer);
 	}
 
 	@Override
@@ -69,5 +69,23 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 	}
 
+	@Override
+	public List<Customer> searchCustomers(String sName) {
+		//get current hibernate session
+		Session currentSession=sessionFactory.getCurrentSession();
+		
+		Query query=null;
+		
+		//Search if search name!=null
+		if(sName!=null && sName.trim().length()>0) {
+			query=currentSession.createQuery("from Customer where lower(firstName) like :sName or lower(lastName) like :sName" , Customer.class);
+			query.setParameter("sName",  "%" + sName.toLowerCase() + "%");
+		}
+		
+		else
+			query=currentSession.createQuery("from Customer" , Customer.class);
+		
+		return query.getResultList();
+	}
 	
 }

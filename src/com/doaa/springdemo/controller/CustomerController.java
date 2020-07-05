@@ -43,10 +43,11 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/saveCustomer")
-	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
-		customerService.saveCustomer(customer);
-		return"redirect:/customer/list";
+	public String saveCustomer(@ModelAttribute("customer") Customer mCustomer) {
 		
+		customerService.saveCustomer(mCustomer);
+		
+		return"redirect:/customer/list";
 	}
 	
 	@GetMapping("/showFormForUpdate")
@@ -68,5 +69,15 @@ public class CustomerController {
 		customerService.deleteCustomer(id);
 		
 		return "redirect:/customer/list";
+	}
+	
+	@GetMapping("/search")
+	public String searchCustomers(@RequestParam("searchName") String sName ,Model model) {
+		
+		List<Customer> customers=customerService.searchCustomers(sName);
+		
+		model.addAttribute("customers" , customers);
+		
+		return "list-customers";	
 	}
 }
