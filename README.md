@@ -1,15 +1,15 @@
 # web-customer-tracker
 Integrating Spring MVC with hibernate
 
-#Database Web App (Spring MVC with Hibernate)
+# Database Web App (Spring MVC with Hibernate)
 
-##Server:
+## Server:
 TomCat server is used
 
-##DataBase:
+## DataBase:
 MySQL Database is used
 
-##Design Patterns
+## Design Patterns
 (MVC , DAO , Facade) Design Patterns are used
 
-###Demo
+### Demo
