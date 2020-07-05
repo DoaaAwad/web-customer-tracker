@@ -20,4 +20,4 @@ inside Adding Customer form you can add a new customer then Click "Save" button 
 
 You Can Search for customers by first name or last name using search form(input text and "Search" button) it will display a list of Customers which has required search name.
 
-You Can Edit Customer or Delete usting "Edit" and "Delete" links in customer row
+You Can Edit Customer or Delete usting "Update" and "Delete" links in customer row
